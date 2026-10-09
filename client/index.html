@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <script>
+      (() => {
+        const savedTheme =
+          localStorage.getItem("crisisops_theme") || "light";
+
+        document.documentElement.classList.remove(
+          "light",
+          "dark"
+        );
+
+        document.documentElement.classList.add(
+          savedTheme === "dark" ? "dark" : "light"
+        );
+
+        document.documentElement.style.colorScheme =
+          savedTheme === "dark" ? "dark" : "light";
+      })();
+    </script>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>CrisisOps</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
+  </body>
+</html>
